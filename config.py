@@ -1,21 +1,23 @@
 import logging
 
-# Настройка логгирования
+# -- Замените на ваш реальный токен бота!
+TOKEN = "7221937653:AAEcpvhUWFEK9muvKFKfPjcRJmAMpvP2Mc4"
+
+# -- Замените на реальный chat_id вашей группы поддержки (или лички)
+STAFF_CHAT_ID = -1002587758467  # Например: -1001599097521 для супергруппы
+
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
-# Прямые настройки (замените на свои)
-TOKEN = "7221937653:AAEcpvhUWFEK9muvKFKfPjcRJmAMpvP2Mc4"
-STAFF_CHAT_ID = -1002587758467
-
-# Состояния ConversationHandler
+# Состояния для ConversationHandler
 (
-    WAITING_FOR_PROBLEM_TYPE,
-    WAITING_FOR_APPLICATION_DETAILS,
-    WAITING_FOR_STAFF_RESPONSE,
-    WAITING_FOR_FEEDBACK,
-    WAITING_FOR_OTHER_PROBLEM_DESCRIPTION
-) = range(5)
+    STATE_PROBLEM_SELECTION,
+    STATE_COLLECT_MEDIA,
+    STATE_COLLECT_DESCRIPTION,
+    STATE_CONFIRM_SEND,
+    STATE_AWAIT_STAFF_REPLY,
+    STATE_AWAIT_CLIENT_FEEDBACK
+) = range(6)
